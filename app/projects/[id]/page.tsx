@@ -3,6 +3,7 @@ import { getSession } from '@/lib/session'
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
 import AddTaskForm from '@/components/AddTaskForm'
+import TaskStatusSelect from '@/components/TaskStatusSelect'
 
 export default async function ProjectPage({ params }: { params: { id: string } }) {
   const session = await getSession()
@@ -49,13 +50,7 @@ export default async function ProjectPage({ params }: { params: { id: string } }
                   <p className="font-medium">{task.title}</p>
                   <p className="text-sm text-gray-500">{task.description}</p>
                 </div>
-                <span className={`text-xs px-2 py-1 rounded ${
-                  task.status === 'done' ? 'bg-green-100 text-green-800' :
-                  task.status === 'in_progress' ? 'bg-blue-100 text-blue-800' :
-                  'bg-gray-100 text-gray-800'
-                }`}>
-                  {task.status}
-                </span>
+                <TaskStatusSelect taskId={task.id} current={task.status} />
               </div>
               <p className="text-xs text-gray-400 mt-2">
                 Priority: {task.priority}
