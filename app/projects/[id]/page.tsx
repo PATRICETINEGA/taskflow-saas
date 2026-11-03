@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation'
 import { getSession } from '@/lib/session'
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
+import AddTaskForm from '@/components/AddTaskForm'
 
 export default async function ProjectPage({ params }: { params: { id: string } }) {
   const session = await getSession()
@@ -36,6 +37,8 @@ export default async function ProjectPage({ params }: { params: { id: string } }
         <p className="text-sm text-gray-500 mb-6">
           Owner: {project.owner.name || project.owner.email} · Status: {project.status}
         </p>
+
+        <AddTaskForm projectId={project.id} />
 
         <h2 className="text-xl font-semibold mb-4">Tasks</h2>
         <div className="bg-white rounded-lg shadow divide-y">

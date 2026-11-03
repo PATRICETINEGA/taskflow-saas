@@ -1,15 +1,17 @@
 # TaskFlow SaaS
 
-Complete full-stack task and project management platform.
+Complete full-stack task and project management platform ready for deployment, customization, or commercial use.
 
 ## Features
 
 - User authentication (email + password)
-- Projects with ownership
+- Projects with ownership and status
 - Tasks with status, priority, assignee, and due dates
-- Dashboard with project and task metrics
+- Dashboard with real-time metrics
 - Role-based access (user / admin)
+- Admin overview of all projects
 - Seed data for immediate demo
+- Clean, documented codebase with domain logic
 
 ## Tech Stack
 
@@ -19,7 +21,7 @@ Complete full-stack task and project management platform.
 - Tailwind CSS
 - TypeScript
 
-## Setup
+## Quick Start
 
 ```bash
 npm install
@@ -41,7 +43,20 @@ Open http://localhost:3000
 ## Project Structure
 
 - `app/` – Next.js App Router pages and API routes
-- `prisma/` – Database schema and seed
-- `lib/` – Shared utilities and auth config
+- `prisma/` – Database schema and seed script
+- `lib/` – Shared utilities and auth configuration
 
-This is a production-ready codebase with real domain logic, ready for white-label customization or further development.
+## Commercial Use
+
+This is a complete, working product with real domain logic. It is suitable for:
+
+- White-label customization and resale
+- Internal tools
+- Further product development
+- Direct source code sale
+
+No external dependencies beyond the listed stack. Fully self-contained for demo and deployment.
+
+## License
+
+MIT License – free to use, modify, and sell.

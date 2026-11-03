@@ -30,6 +30,9 @@ export default async function DashboardPage() {
       <nav className="bg-white border-b px-6 py-4 flex justify-between items-center">
         <h1 className="text-xl font-bold">TaskFlow</h1>
         <div className="flex items-center gap-4">
+          {isAdmin && (
+            <Link href="/admin" className="text-sm text-purple-600">Admin</Link>
+          )}
           <span className="text-sm text-gray-600">{session.user?.email}</span>
           <Link href="/api/auth/signout" className="text-sm text-red-600">
             Sign out
