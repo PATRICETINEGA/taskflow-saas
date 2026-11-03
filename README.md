@@ -1,6 +1,6 @@
 # TaskFlow SaaS
 
-Complete full-stack task and project management platform ready for deployment, customization, or commercial use.
+Full-stack task and project management application.
 
 ## Features
 
@@ -46,17 +46,6 @@ Open http://localhost:3000
 - `prisma/` – Database schema and seed script
 - `lib/` – Shared utilities and auth configuration
 
-## Commercial Use
-
-This is a complete, working product with real domain logic. It is suitable for:
-
-- White-label customization and resale
-- Internal tools
-- Further product development
-- Direct source code sale
-
-No external dependencies beyond the listed stack. Fully self-contained for demo and deployment.
-
 ## License
 
-MIT License – free to use, modify, and sell.
+MIT License
