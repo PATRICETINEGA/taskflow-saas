@@ -29,39 +29,45 @@ async function main() {
     },
   })
 
-  const project = await prisma.project.create({
-    data: {
-      name: 'Website Redesign',
-      description: 'Complete redesign of the company marketing site',
-      status: 'active',
-      ownerId: demo.id,
-      tasks: {
-        create: [
-          {
-            title: 'Design homepage mockups',
-            description: 'Create high-fidelity designs for the new homepage',
-            status: 'in_progress',
-            priority: 'high',
-            assigneeId: demo.id,
-          },
-          {
-            title: 'Implement responsive layout',
-            status: 'todo',
-            priority: 'medium',
-            assigneeId: demo.id,
-          },
-          {
-            title: 'Write content for about page',
-            status: 'done',
-            priority: 'low',
-          },
-        ],
-      },
-    },
+  const existing = await prisma.project.findFirst({
+    where: { name: 'Website Redesign', ownerId: demo.id },
   })
 
+  if (!existing) {
+    await prisma.project.create({
+      data: {
+        name: 'Website Redesign',
+        description: 'Complete redesign of the company marketing site',
+        status: 'active',
+        ownerId: demo.id,
+        tasks: {
+          create: [
+            {
+              title: 'Design homepage mockups',
+              description: 'Create high-fidelity designs for the new homepage',
+              status: 'in_progress',
+              priority: 'high',
+              assigneeId: demo.id,
+            },
+            {
+              title: 'Implement responsive layout',
+              status: 'todo',
+              priority: 'medium',
+              assigneeId: demo.id,
+            },
+            {
+              title: 'Write content for about page',
+              status: 'done',
+              priority: 'low',
+            },
+          ],
+        },
+      },
+    })
+  }
+
   console.log('Seed completed')
-  console.log({ admin: admin.email, demo: demo.email, project: project.name })
+  console.log({ admin: admin.email, demo: demo.email })
 }
 
 main()
